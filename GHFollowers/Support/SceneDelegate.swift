@@ -53,11 +53,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         if #available(iOS 15.0, *) {
             UITabBar.appearance().scrollEdgeAppearance = tabBarAppearance
         }
-        
-        let navigationBarAppearance = UINavigationBarAppearance()
-        navigationBarAppearance.configureWithOpaqueBackground()
-        
-        UINavigationBar.appearance().scrollEdgeAppearance = navigationBarAppearance
+//        
+//        let navigationBarAppearance = UINavigationBarAppearance()
+//        navigationBarAppearance.configureWithOpaqueBackground()
+//        
+//        UINavigationBar.appearance().scrollEdgeAppearance = navigationBarAppearance
         
         tabBar.viewControllers = [createSearchNC(),createFavoriteNC()]
         return tabBar

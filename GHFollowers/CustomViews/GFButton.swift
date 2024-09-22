@@ -27,9 +27,9 @@ class GFButton: UIButton {
     
     private func configure() {
         translatesAutoresizingMaskIntoConstraints = false
-        
+
         layer.cornerRadius      = 10
-        titleLabel?.textColor   = .white
+        setTitleColor(.white, for: .normal)
         titleLabel?.font        = .preferredFont(forTextStyle: .headline)
     }
 }
