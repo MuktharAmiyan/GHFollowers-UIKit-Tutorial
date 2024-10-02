@@ -1,13 +1,13 @@
 //
-//  GFSecondaryTitleLabel.swift
+//  GFBodyLabel.swift
 //  GHFollowers
 //
-//  Created by Mukthar Amiyan on 28/09/24.
+//  Created by Mukthar Amiyan on 08/09/24.
 //
 
 import UIKit
 
-class GFSecondaryTitleLabel: UILabel {
+class GFBodyLabel: UILabel {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -18,9 +18,9 @@ class GFSecondaryTitleLabel: UILabel {
         fatalError("init(coder:) has not been implemented")
     }
     
-    init(fontSize: CGFloat) {
+    init(textAlignment: NSTextAlignment) {
         super.init(frame: .zero)
-        font = UIFont.systemFont(ofSize: fontSize, weight: .medium)
+        self.textAlignment = textAlignment
         configure()
     }
     
@@ -28,8 +28,9 @@ class GFSecondaryTitleLabel: UILabel {
         translatesAutoresizingMaskIntoConstraints = false
         
         textColor                   = .secondaryLabel
+        font                        = .preferredFont(forTextStyle: .body)
         adjustsFontSizeToFitWidth   = true
-        minimumScaleFactor          = 0.90
+        minimumScaleFactor          = 0.75
         lineBreakMode               = .byTruncatingTail
     }
 
