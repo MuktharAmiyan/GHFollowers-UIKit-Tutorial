@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0402F4002CB1327600EF6658 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0402F3FF2CB1327600EF6658 /* UIView+Ext.swift */; };
+		0402F4022CB14E1100EF6658 /* UITableView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0402F4012CB14E1100EF6658 /* UITableView+Ext.swift */; };
 		041C83BF2CA7D36A00754187 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041C83BE2CA7D36A00754187 /* Constants.swift */; };
 		041C83C22CA8347400754187 /* GFItemInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041C83C12CA8347400754187 /* GFItemInfoView.swift */; };
 		041C83C42CA83A5900754187 /* GFItemInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041C83C32CA83A5900754187 /* GFItemInfoVC.swift */; };
@@ -47,6 +48,7 @@
 
 /* Begin PBXFileReference section */
 		0402F3FF2CB1327600EF6658 /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
+		0402F4012CB14E1100EF6658 /* UITableView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Ext.swift"; sourceTree = "<group>"; };
 		041C83BE2CA7D36A00754187 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		041C83C12CA8347400754187 /* GFItemInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFItemInfoView.swift; sourceTree = "<group>"; };
 		041C83C32CA83A5900754187 /* GFItemInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFItemInfoVC.swift; sourceTree = "<group>"; };
@@ -252,6 +254,7 @@
 				04B81D6E2C8D71EF0055DF0C /* UIViewController+Ext.swift */,
 				045C7EA72CA84A8A0006C910 /* Date+Ext.swift */,
 				0402F3FF2CB1327600EF6658 /* UIView+Ext.swift */,
+				0402F4012CB14E1100EF6658 /* UITableView+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -387,6 +390,7 @@
 				04B81D4B2C8C2ED50055DF0C /* AppDelegate.swift in Sources */,
 				04B81D4D2C8C2ED50055DF0C /* SceneDelegate.swift in Sources */,
 				0439A4CC2CA7C425004CB8FE /* GFUserInfoHeaderVC.swift in Sources */,
+				0402F4022CB14E1100EF6658 /* UITableView+Ext.swift in Sources */,
 				045C7EA22CA8424B0006C910 /* GFRepoItemVC.swift in Sources */,
 				0439A4CA2CA05A62004CB8FE /* UserInfoVC.swift in Sources */,
 			);
