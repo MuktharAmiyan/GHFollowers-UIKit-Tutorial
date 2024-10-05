@@ -31,9 +31,7 @@ class GFItemInfoView: UIView {
     
     
     private func configure() {
-        addSubview(symbolImageView)
-        addSubview(titleLabel)
-        addSubview(countLabel)
+        addSubviews(symbolImageView, titleLabel, countLabel)
         
         symbolImageView.translatesAutoresizingMaskIntoConstraints = false
         symbolImageView.contentMode = .scaleAspectFill
@@ -64,16 +62,16 @@ class GFItemInfoView: UIView {
     func set(ItemInfoType: ItemInfoType,withCount count: Int){
         switch ItemInfoType {
         case .repos:
-            symbolImageView.image   = UIImage(systemName: SFSymbols.repos)
+            symbolImageView.image   = SFSymbols.repos
             titleLabel.text         = "Public Repos"
         case .gist:
-            symbolImageView.image   = UIImage(systemName: SFSymbols.gist)
+            symbolImageView.image   = SFSymbols.gist
             titleLabel.text         = "Public Gists"
         case .followers:
-            symbolImageView.image   = UIImage(systemName: SFSymbols.followers)
+            symbolImageView.image   = SFSymbols.followers
             titleLabel.text         = "Followers"
         case .following:
-            symbolImageView.image   = UIImage(systemName: SFSymbols.following)
+            symbolImageView.image   = SFSymbols.following
             titleLabel.text         = "Following"
         }
         

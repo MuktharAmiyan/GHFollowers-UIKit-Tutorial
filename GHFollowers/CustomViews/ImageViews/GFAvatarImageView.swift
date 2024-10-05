@@ -9,7 +9,6 @@ import UIKit
 
 class GFAvatarImageView: UIImageView {
     
-    let cache                      = NetworkManager.shared.cache
     let placeholderImage : UIImage = .avatarPlaceholder
 
     override init(frame: CGRect) {
@@ -21,6 +20,11 @@ class GFAvatarImageView: UIImageView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    convenience init(urlString: String){
+        self.init(frame: .zero)
+        downloadImage(from: urlString)
+    }
+    
     private func configure() {
         layer.cornerRadius  = 10
         clipsToBounds       = true
@@ -28,27 +32,11 @@ class GFAvatarImageView: UIImageView {
         translatesAutoresizingMaskIntoConstraints = false
     }
     
-    func downloadImage(from urlString: String) {
-        let cacheKey = NSString(string: urlString)
-        if let image = cache.object(forKey: cacheKey) {
-            self.image = image
-            return
-        }
-            
-        guard let url = URL(string: urlString) else { return }
-        
-        let task = URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
+     func downloadImage(from urlString: String) {
+        NetworkManager.shared.downloadImage(from: urlString) { [weak self] image in
             guard let self = self else { return }
-            if error != nil { return }
-            guard let response = response as? HTTPURLResponse , response.statusCode == 200 else { return }
-            guard let data else { return }
-            
-            guard let image = UIImage(data: data) else { return }
-            self.cache.setObject(image, forKey: cacheKey)
-            DispatchQueue.main.async {  self.image = image }
+            DispatchQueue.main.async { self.image = image }
         }
-        
-        task.resume()
     }
     
 }
