@@ -13,11 +13,6 @@ class GFTabBarController: UITabBarController {
         super.viewDidLoad()
         
         UITabBar.appearance().tintColor = .systemGreen
-        let tabBarAppearance = UITabBarAppearance()
-        tabBarAppearance.configureWithOpaqueBackground()
-        if #available(iOS 15.0, *) {
-            UITabBar.appearance().scrollEdgeAppearance = tabBarAppearance
-        }
         self.viewControllers = [createSearchNC(),createFavoriteNC()]
     }
     

@@ -7,25 +7,31 @@
 
 import UIKit
 
-
 enum SFSymbols {
-    static let location     = UIImage(systemName: "mappin.and.ellipse")
-    static let repos        = UIImage(systemName: "folder")
-    static let gist         = UIImage(systemName: "text.alignleft")
-    static let following    = UIImage(systemName: "heart")
-    static let followers    = UIImage(systemName: "person.2")
+    
+    static let location                 = UIImage(systemName: "mappin.and.ellipse")
+    static let repos                    = UIImage(systemName: "folder")
+    static let gist                     = UIImage(systemName: "text.alignleft")
+    static let following                = UIImage(systemName: "heart")
+    static let followers                = UIImage(systemName: "person.2")
+    static let search                   = UIImage(systemName: "magnifyingglass")
+    static let checkMark                = UIImage(systemName: "checkmark.circle")
+    static let person3                  = UIImage(systemName: "person.3")
+    static let person                   = UIImage(systemName: "person")
 }
 
 
 enum ScreenSize {
-    static let width        = UIScreen.main.bounds.size.width
-    static let height       = UIScreen.main.bounds.size.height
-    static let maxLength    = max(ScreenSize.width, ScreenSize.height)
-    static let minLength    = min(ScreenSize.width, ScreenSize.height)
+    
+    static let width                    = UIScreen.main.bounds.size.width
+    static let height                   = UIScreen.main.bounds.size.height
+    static let maxLength                = max(ScreenSize.width, ScreenSize.height)
+    static let minLength                = min(ScreenSize.width, ScreenSize.height)
 }
 
 
 enum DeviceTypes {
+    
     static let idiom                    = UIDevice.current.userInterfaceIdiom
     static let nativeScale              = UIScreen.main.nativeScale
     static let scale                    = UIScreen.main.scale

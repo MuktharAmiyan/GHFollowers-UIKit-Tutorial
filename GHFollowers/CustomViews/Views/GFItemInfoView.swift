@@ -11,7 +11,6 @@ enum ItemInfoType {
     case repos, gist, followers, following
 }
 
-
 class GFItemInfoView: UIView {
 
     let symbolImageView = UIImageView()

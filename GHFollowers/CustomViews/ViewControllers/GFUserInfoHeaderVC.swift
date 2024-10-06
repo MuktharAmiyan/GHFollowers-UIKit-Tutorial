@@ -18,21 +18,26 @@ class GFUserInfoHeaderVC: UIViewController {
     
     var user: User!
     
+    
     init(user: User) {
         super.init(nibName: nil, bundle: nil)
         self.user = user
     }
     
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        addSubviews()
+        view.addSubviews(avatarImageView, usernameLabel, nameLabel, locationImageView, locationLabel, bioLabel)
+        
         layoutUI()
         configureUIElements()
     }
+    
     
     func configureUIElements()  {
         avatarImageView.downloadImage(from: user.avatarUrl)
@@ -45,10 +50,6 @@ class GFUserInfoHeaderVC: UIViewController {
         locationImageView.image     = SFSymbols.location
         locationImageView.tintColor = .secondaryLabel
         
-    }
-    
-    func addSubviews() {
-        view.addSubviews(avatarImageView, usernameLabel, nameLabel, locationImageView, locationLabel, bioLabel)
     }
     
     

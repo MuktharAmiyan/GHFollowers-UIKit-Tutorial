@@ -28,7 +28,4 @@ class GFAlertContainerView: UIView {
 
         translatesAutoresizingMaskIntoConstraints = false
     }
-    
-    
-     
 }

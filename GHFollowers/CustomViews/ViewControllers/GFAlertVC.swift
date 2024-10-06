@@ -12,13 +12,14 @@ class GFAlertVC: UIViewController {
     let containerView   = GFAlertContainerView()
     let titleLabel      = GFTitleLabel(textAlignment: .center, fontSize: 20)
     let messageLabel    = GFBodyLabel(textAlignment: .center)
-    let actionButton    = GFButton(backgroundColor: .systemPink, title: "Ok")
+    let actionButton    = GFButton(color: .systemPink, title: "Ok", image: SFSymbols.checkMark)
     
     var alertTitle: String?
     var message: String?
     var buttonTitle: String?
     
     let padding: CGFloat = 20
+    
     
     init(title: String? = nil, message: String? = nil, buttonTitle: String? = nil) {
         super.init(nibName: nil, bundle: nil)
@@ -32,8 +33,10 @@ class GFAlertVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .black.withAlphaComponent(0.75)
+        
         view.addSubviews(containerView)
         containerView.addSubviews(titleLabel, messageLabel , actionButton)
+        
         configureContainerView()
         configureTitleLabel()
         configureActionButton()
@@ -45,6 +48,7 @@ class GFAlertVC: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    
     func configureContainerView() {
         
         NSLayoutConstraint.activate([
@@ -54,6 +58,7 @@ class GFAlertVC: UIViewController {
             containerView.heightAnchor.constraint(equalToConstant: 220),
         ])
     }
+    
     
     func configureTitleLabel() {
     

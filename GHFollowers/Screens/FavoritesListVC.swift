@@ -51,26 +51,29 @@ class FavoritesListVC: GFDataLoadingVC {
     
             switch result {
             case .success(let favourites):
-                if favourites.isEmpty {
-                    showEmptyStateView(with: "No favourites?\nAdd one on the follower screen.", in: self.view)
-                } else {
-                    self.favourites = favourites
-
-                    DispatchQueue.main.async {
-                        self.tableView.reloadData()
-                        self.view.bringSubviewToFront(self.tableView)
-                    }
-                }
-               
+                self.updateUI(with: favourites)
             case .failure(let failure):
-                self.presentGFAlertOnMainTread(title: "Something went wrong", message: failure.rawValue, buttonTitle: "Ok")
+                self.presentGFAlert(title: "Something went wrong", message: failure.rawValue, buttonTitle: "Ok")
+            }
+        }
+    }
+    
+    
+    func updateUI(with favourites: [Follower]) {
+        if favourites.isEmpty {
+            showEmptyStateView(with: "No favourites?\nAdd one on the follower screen.", in: self.view)
+        } else {
+            self.favourites = favourites
+
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+                self.view.bringSubviewToFront(self.tableView)
             }
         }
     }
 }
 
 extension FavoritesListVC: UITableViewDelegate, UITableViewDataSource {
-    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
        return favourites.count
@@ -102,7 +105,7 @@ extension FavoritesListVC: UITableViewDelegate, UITableViewDataSource {
                 self.tableView.deleteRows(at: [indexPath], with: .left)
                 return
             }
-            self.presentGFAlertOnMainTread(title: "Unable to remove", message: error.rawValue, buttonTitle: "Ok")
+            self.presentGFAlert(title: "Unable to remove", message: error.rawValue, buttonTitle: "Ok")
         }
     }
 }
