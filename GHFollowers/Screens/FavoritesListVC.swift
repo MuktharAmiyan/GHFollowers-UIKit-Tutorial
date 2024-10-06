@@ -24,6 +24,19 @@ class FavoritesListVC: GFDataLoadingVC {
         getFavourite()
     }
     
+    override func updateContentUnavailableConfiguration(using state: UIContentUnavailableConfigurationState) {
+        if favourites.isEmpty {
+            var config              = UIContentUnavailableConfiguration.empty()
+            config.image            = .init(systemName: "star")
+            config.text             = "No Favourites"
+            config.secondaryText    = "Add a favourite on the follower list screen to see them here."
+            
+            contentUnavailableConfiguration = config
+        } else {
+            contentUnavailableConfiguration = nil
+        }
+    }
+    
     func configureViewController() {
         view.backgroundColor    = .systemBackground
         title                   = "Favourites"
@@ -62,15 +75,11 @@ class FavoritesListVC: GFDataLoadingVC {
     
     
     func updateUI(with favourites: [Follower]) {
-        if favourites.isEmpty {
-            showEmptyStateView(with: "No favourites?\nAdd one on the follower screen.", in: self.view)
-        } else {
-            self.favourites = favourites
-
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-                self.view.bringSubviewToFront(self.tableView)
-            }
+        self.favourites = favourites
+        setNeedsUpdateContentUnavailableConfiguration()
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+            self.view.bringSubviewToFront(self.tableView)
         }
     }
 }
@@ -105,9 +114,7 @@ extension FavoritesListVC: UITableViewDelegate, UITableViewDataSource {
             guard let error = error else {
                 self.favourites.remove(at: indexPath.row)
                 self.tableView.deleteRows(at: [indexPath], with: .left)
-                if self.favourites.isEmpty {
-                    self.showEmptyStateView(with: "No favourites?\nAdd one on the follower screen.", in: self.view)
-                }
+                setNeedsUpdateContentUnavailableConfiguration()
                 return
             }
             DispatchQueue.main.async {

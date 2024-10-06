@@ -39,7 +39,11 @@ class GFButton: UIButton {
         configuration?.title                = title
         
         configuration?.image                = image
-        configuration?.imagePadding         = 6
+        configuration?.imagePadding         = 8
         configuration?.imagePlacement       = .leading
     }
+}
+
+#Preview {
+    GFButton(color: .green, title: "Test Button", image: UIImage(systemName: "pencil"))
 }
